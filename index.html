@@ -8,6 +8,7 @@
 <body>
 
   <!-- HTML -->
+  <div id="search_container"></div>
 
   <!-- EXTERNAL SCRIPTS -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
@@ -15,7 +16,14 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
 
   <!-- JS -->
-  <script>
+  <script type="text/javascript">
+    SearchView = Backbone.View.extend({
+      initialize: function(){
+        alert("Beep beep.");
+      }
+    });
+
+    var search_view = new SearchView({ el: $("#search_container") });
   </script>
 
 
