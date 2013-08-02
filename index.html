@@ -16,7 +16,7 @@
   <script type="text/template" id="search_template">
     <form class="form-horizontal">
       <label><%= search_label %></label>
-      <input type="text" id="search_input" />
+      <input type="text" id="search_input" placeholder="<%= search_placeholder %>" />
       <input type="button" class="btn btn-primary" id="search_button" value="Search" />
     </form>
   </script>
@@ -34,7 +34,10 @@
       },
       render: function(){
         // Pass variables in using Underscore.js Template
-        var variables = { search_label: "My Search" };
+        var variables = { 
+                          search_label: "My Search",
+                          search_placeholder: "Search Here"
+                        };
 
         // Compile the template using underscore
         var template = _.template( $("#search_template").html(), variables );
