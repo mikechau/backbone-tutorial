@@ -32,6 +32,11 @@
     // MODELS
 
     Person = Backbone.Model.extend({
+      defaults: {
+        name: 'Doe',
+        age: 0,
+        child: ''
+      },
       initialize: function(){
         console.log("Person Model initialized.");
       }
@@ -69,14 +74,15 @@
     var search_view = new SearchView({ el: $("#search_container") }); // view
 
     // Debugging
-    function getNameAndAge(person) {
+    function getPersonAttributes(person) {
       console.log("=============================");
       console.log( "Name: " + person.get("name") );
       console.log( "Age: " + person.get("age") );
+      console.log( "Child: " + person.get("child") );
     }
-    getNameAndAge(person);
-    person.set({ name: "Ryo", age: 22 });
-    getNameAndAge(person);
+    getPersonAttributes(person);
+    person.set({ name: "Ryo", age: 22, child: 'Kyo' });
+    getPersonAttributes(person);
   </script>
 
 
