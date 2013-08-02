@@ -93,6 +93,7 @@
     // ROUTES
     var AppRouter = Backbone.Router.extend({
       routes: {
+        "posts/:id": "getPost",
         "*actions": "defaultRoute"
       }
     });
@@ -101,6 +102,10 @@
     var person = new Person({ name: "Jack", age: 21 }); // model
 
     var app_router = new AppRouter;
+
+    app_router.on('route:getPost', function (id) {
+      console.log("Get Post Number " + id );
+    });
 
     app_router.on('route:defaultRoute', function(actions){
       console.log(actions);
