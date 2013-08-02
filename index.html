@@ -65,8 +65,18 @@
     });
 
     // Create Instances
-    var person = new Person; // model
+    var person = new Person({ name: "Jack", age: 21 }); // model
     var search_view = new SearchView({ el: $("#search_container") }); // view
+
+    // Debugging
+    function getNameAndAge(person) {
+      console.log("=============================");
+      console.log( "Name: " + person.get("name") );
+      console.log( "Age: " + person.get("age") );
+    }
+    getNameAndAge(person);
+    person.set({ name: "Ryo", age: 22 });
+    getNameAndAge(person);
   </script>
 
 
