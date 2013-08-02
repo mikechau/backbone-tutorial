@@ -28,6 +28,16 @@
 
   <!-- JS -->
   <script type="text/javascript">
+
+    // MODELS
+
+    Person = Backbone.Model.extend({
+      initialize: function(){
+        console.log("Person Model initialized.");
+      }
+    });
+
+    // VIEWS
     SearchView = Backbone.View.extend({
       initialize: function(){
         this.render();
@@ -54,7 +64,9 @@
       }
     });
 
-    var search_view = new SearchView({ el: $("#search_container") });
+    // Create Instances
+    var person = new Person; // model
+    var search_view = new SearchView({ el: $("#search_container") }); // view
   </script>
 
 
