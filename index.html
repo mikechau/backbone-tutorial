@@ -30,8 +30,7 @@
   <script type="text/javascript">
 
     // MODELS
-
-    Person = Backbone.Model.extend({
+    var Person = Backbone.Model.extend({
       defaults: {
         name: 'Doe',
         age: 0,
@@ -49,8 +48,23 @@
       }
     });
 
+    var Song = Backbone.Model.extend({
+      defaults: {
+        name: "Not specified",
+        artist: "Not specified"
+      },
+      initialize: function(){
+        console.log("Woo.. jam on!");
+      }
+    });
+
+    // COLLECTIONS
+    var Album = Backbone.Collection.extend({
+      model: Song
+    });
+
     // VIEWS
-    SearchView = Backbone.View.extend({
+    var SearchView = Backbone.View.extend({
       initialize: function(){
         this.render();
       },
@@ -80,6 +94,12 @@
     var person = new Person({ name: "Jack", age: 21 }); // model
     var search_view = new SearchView({ el: $("#search_container") }); // view
 
+    var song1 = new Song({ name: "Speed of Light", artist: "Stratovarius" });
+    var song2 = new Song({ name: "Sexual Healing", artist: "Marvin Gaye" });
+    var song3 = new Song({ name: "I Love the Feeling", artist: "D.VELOPED"});
+
+    var myAlbum = new Album([ song1, song2, song3 ]);
+
     // Debugging
     function getPersonAttributes(person) {
       console.log("=============================");
@@ -91,6 +111,7 @@
     getPersonAttributes(person);
     person.set({ name: "Ryo", age: 22, child: 'Kyo' });
     getPersonAttributes(person);
+    console.log( myAlbum.models );
   </script>
 
 
